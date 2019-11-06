@@ -1,5 +1,9 @@
 
 install:
-	cp -b ./.vimrc ~/.vimrc
-	cp -b ./.tmux.conf ~/.tmux.conf
+	cp --backup=numbered ./.vimrc ~/.vimrc
+	cp --backup=numbered ./.tmux.conf ~/.tmux.conf
+
+clear-backups:
+	rm ~/.vimrc.~*
+	rm ~/.tmux.conf.~*
 

@@ -7,3 +7,6 @@ clear-backups:
 	rm ~/.vimrc.~*
 	rm ~/.tmux.conf.~*
 
+vundle:
+	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+

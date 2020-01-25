@@ -49,3 +49,15 @@ if [ -f ~/.git-prompt.sh ]; then
     . ~/.git-prompt.sh
 fi
 
+function git-clone {
+    yes="git clone `xclip -o`"
+    select yn in "$yes" "abort"; do
+    case $yn in
+        $yes ) git clone `xclip -o`; break;;
+        abort ) echo "aborted"; break;;
+    esac
+done
+}
+
+
+

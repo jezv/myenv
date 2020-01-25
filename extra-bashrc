@@ -50,10 +50,10 @@ if [ -f ~/.git-prompt.sh ]; then
 fi
 
 function git-clone {
-    yes="git clone `xclip -o`"
+    yes="git clone `xclip -o` $1"
     select yn in "$yes" "abort"; do
     case $yn in
-        $yes ) git clone `xclip -o`; break;;
+        $yes ) git clone `xclip -o` $1; break;;
         abort ) echo "aborted"; break;;
     esac
 done

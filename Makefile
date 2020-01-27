@@ -2,6 +2,7 @@
 install:
 	cp --backup=numbered ./.vimrc ~/.vimrc
 	cp --backup=numbered ./.tmux.conf ~/.tmux.conf
+	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh > ~/.git-prompt.sh
 
 clear-backups:
 	rm ~/.vimrc.~*

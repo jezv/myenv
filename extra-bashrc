@@ -20,6 +20,12 @@ function color_my_prompt {
     local __user_input_color="$LIGHT_GRAY"
     local __git_branch=$(__git_ps1); 
 
+    if [[ "$SHELL" =~ "nix" ]]; then
+        __prompt_tail="$VIOLET\n[nix]$"
+    fi
+
+    
+
   # colour branch name depending on state
   if [[ "${__git_branch}" =~ "*" ]]; then     # if repository is dirty
       __git_branch_color="$RED"

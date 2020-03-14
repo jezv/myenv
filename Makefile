@@ -18,6 +18,7 @@ ycm:
 	cd ~/some/path/here/YouCompleteMe; python3 install.py --clang-completer
 
 ag:
+	sudo apt-get install -y automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
 	git clone https://github.com/ggreer/the_silver_searcher.git ~/.the_silver_searcher
 	cd ~/.the_silver_searcher
 	./build.sh

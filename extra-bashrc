@@ -68,4 +68,9 @@ done
 alias treel='tree -L'
 export FZF_TMUX=1
 export FZF_TMUX_HEIGHT=40%
+alias cmd='cmd.exe /C'
+
+alias cs='cmake -S . -B build'
+alias cb='cmake --build build'
+alias cc='rm -rf build'
 

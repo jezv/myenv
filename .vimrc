@@ -17,7 +17,7 @@ Plugin 'gmarik/Vundle.vim'
 "Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
 "Bundle 'Valloric/YouCompleteMe'
-Plugin 'vim-syntastic/syntastic'
+"Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 "Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}

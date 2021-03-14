@@ -27,33 +27,34 @@ function color_my_prompt {
     
 
   # colour branch name depending on state
-  if [[ "${__git_branch}" =~ "*" ]]; then     # if repository is dirty
-      __git_branch_color="$RED"
-  elif [[ "${__git_branch}" =~ "$" ]]; then   # if there is something stashed
-      __git_branch_color="$YELLOW"
-  elif [[ "${__git_branch}" =~ "%" ]]; then   # if there are only untracked files
-      __git_branch_color="$LIGHT_GRAY"
-  elif [[ "${__git_branch}" =~ "+" ]]; then   # if there are staged files
-      __git_branch_color="$CYAN"
-  fi
+#  if [[ "${__git_branch}" =~ "*" ]]; then     # if repository is dirty
+#      __git_branch_color="$RED"
+#  elif [[ "${__git_branch}" =~ "$" ]]; then   # if there is something stashed
+#      __git_branch_color="$YELLOW"
+#  elif [[ "${__git_branch}" =~ "%" ]]; then   # if there are only untracked files
+#      __git_branch_color="$LIGHT_GRAY"
+#  elif [[ "${__git_branch}" =~ "+" ]]; then   # if there are staged files
+#      __git_branch_color="$CYAN"
+#  fi
 
   # Build the PS1 (Prompt String)
-  PS1="$__user_and_host $__cur_location$__git_branch_color$__git_branch $__prompt_tail$__user_input_color "
+  #PS1="$__user_and_host $__cur_location$__git_branch_color$__git_branch $__prompt_tail$__user_input_color "
+  PS1="$__user_and_host $__cur_location $__prompt_tail$__user_input_color "
 }
 
 # configure PROMPT_COMMAND which is executed each time before PS1
-export PROMPT_COMMAND=color_my_prompt
+#export PROMPT_COMMAND=color_my_prompt
 
 # if .git-prompt.sh exists, set options and execute it
-if [ -f ~/.git-prompt.sh ]; then
-    GIT_PS1_SHOWDIRTYSTATE=true
-    GIT_PS1_SHOWSTASHSTATE=true
-    GIT_PS1_SHOWUNTRACKEDFILES=true
-    GIT_PS1_SHOWUPSTREAM="auto"
-    GIT_PS1_HIDE_IF_PWD_IGNORED=true
-    GIT_PS1_SHOWCOLORHINTS=true
-    . ~/.git-prompt.sh
-fi
+#if [ -f ~/.git-prompt.sh ]; then
+#    GIT_PS1_SHOWDIRTYSTATE=true
+#    GIT_PS1_SHOWSTASHSTATE=true
+#    GIT_PS1_SHOWUNTRACKEDFILES=true
+#    GIT_PS1_SHOWUPSTREAM="auto"
+#    GIT_PS1_HIDE_IF_PWD_IGNORED=true
+#    GIT_PS1_SHOWCOLORHINTS=true
+#    . ~/.git-prompt.sh
+#fi
 
 function git-clone {
     yes="git clone `xclip -o` $1"
@@ -69,8 +70,26 @@ alias treel='tree -L'
 export FZF_TMUX=1
 export FZF_TMUX_HEIGHT=40%
 alias cmd='cmd.exe /C'
+#alias pshell2='powershell.exe -command'
+#alias pshell = 'powershell.exe -command ~/with-env.ps1'
+alias wpaste="powershell.exe -command \"Get-Clipboard\""
 
 alias cs='cmake -S . -B build'
 alias cb='cmake --build build'
 alias cc='rm -rf build'
+alias lx='ls -1X'
+
+function pdt2bst {
+    env TZ=US/Pacific date --date="$1" +'%I:%M%P %Z'
+    env TZ=Europe/London date --date="TZ=\"US/Pacific\" $1" +'%I:%M%P %Z'
+}
+function bst2pdt {
+    env TZ=Europe/London date --date="$1" +'%I:%M%P %Z'
+    env TZ=US/Pacific date --date="TZ=\"Europe/London\" $1" +'%I:%M%P %Z'
+}
+function ae {
+    CLUSTER=$(cat ~/cluster.txt)
+    echo "using cluster:$CLUSTER" >&2
+    aether.exe $@ --cluster `cat ~/cluster.txt`
+}
 

@@ -9,7 +9,7 @@ clear-backups:
 	rm ~/.tmux.conf.~*
 
 vundle:
-	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	gitl clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 ubuntu:
 	sudo apt install build-essential cmake python3-dev tmux vim-gtk xclip
@@ -19,12 +19,12 @@ ycm:
 
 ag:
 	sudo apt-get install -y automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
-	git clone https://github.com/ggreer/the_silver_searcher.git ~/.the_silver_searcher
+	gitl clone https://github.com/ggreer/the_silver_searcher.git ~/.the_silver_searcher
 	cd ~/.the_silver_searcher
 	./build.sh
 	sudo make install
 
 fzf:
-	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+	gitl clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	~/.fzf/install
 

@@ -1,6 +1,8 @@
 set nocompatible              " required
 filetype off                  " required
 
+set ttymouse=sgr
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -31,6 +33,7 @@ filetype plugin indent on    " required
 
 let python_highlight_all=1
 syntax on
+colorscheme monokai
 
 set nu
 
@@ -79,4 +82,10 @@ if 'VIRTUAL_ENV' in os.environ:
   execfile(activate_this, dict(__file__=activate_this))
 EOF
 
+set term=screen-256color
 
+set mouse=a
+
+
+
+set hlsearch
